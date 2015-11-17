@@ -30,7 +30,7 @@ def get_overdue(loan_period):
 	overdue_by_member = {}
 	articles_transacted = []
 
-	for d in frappe.db.sql("""select name, article, article_name, library_member, member_name , transaction_type
+	for d in frappe.db.sql("""select name, article, article_name, library_member, member_name ,transaction_type,transaction_date
 		from `tabLibrary Transaction` order by transaction_date desc, modified desc""", as_dict=1):
 
 		if d.article in articles_transacted:
